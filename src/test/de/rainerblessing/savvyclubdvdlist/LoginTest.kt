@@ -24,7 +24,7 @@ class LoginTest() : TestBase() {
 
         //https://parellisavvyclub.com/#!/library/308/resources?parent=12&title=Savvy%20Club%20DVD%20Issue%201%20December%202003
 //        driver.get(URI("https://parellisavvyclub.com/#!/library/308/resources?parent=12&title=Savvy%20Club%20DVD%20Issue%201%20December%202003").toString())
-//        driver.get(URI("https://parellisavvyclub.com/#!/library/12/categories").toString())
+//        driver.get(URI("https://parellisavvyclub.com/#!/library/12/categories").toString()) //Savvy Club DVDs
         driver.get(URI("https://parellisavvyclub.com/#!/library/659/categories").toString())
 
 
