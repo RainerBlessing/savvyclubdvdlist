@@ -20,7 +20,7 @@ abstract class TestBase {
         System.setProperty(UtilResources.getProperties("nameDriver"),
                 UtilResources.getProperties("pathDriver") + UtilResources.getProperties("exeDriver"))
         driver = ChromeDriver()
-//        driver.manage().deleteAllCookies();
+        driver.manage().deleteAllCookies();
         driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
         driver.manage()?.window()?.maximize()
         driver.get(URI(UtilResources.getProperties("pageURL")).toString())

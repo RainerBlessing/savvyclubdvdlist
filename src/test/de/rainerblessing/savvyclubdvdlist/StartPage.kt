@@ -45,7 +45,7 @@ class StartPage(private val driver: WebDriver) {
 //        wait2.until(ExpectedConditions.textMatches(By.xpath("//*[@id=\"loginPopup\"]/div/div/div[2]/form/div[1]/div[2]/input"),Pattern.compile(password)))
 
         try {
-            Thread.sleep(500)
+            Thread.sleep(2000)
         } catch (e: InterruptedException) {
             e.printStackTrace()
         }

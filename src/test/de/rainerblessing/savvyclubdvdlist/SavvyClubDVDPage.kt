@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.PageFactory
 
-class SavvyClubDVDPage(driver: WebDriver){
+class SavvyClubDVDPage(private val driver: WebDriver){
     @FindBy(css = ".prl__player__playlist__title")
     private val listItems: List<WebElement>? = null
 
@@ -38,8 +38,15 @@ class SavvyClubDVDPage(driver: WebDriver){
                 }
             }
             }
+    }
+
+    fun printEnd() {
         40.downTo(0).forEach { print("=") }
         println("")
+    }
+
+    fun printURL() {
+        println(driver.currentUrl)
     }
 
 }
