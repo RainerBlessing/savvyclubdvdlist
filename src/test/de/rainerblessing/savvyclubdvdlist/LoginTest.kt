@@ -40,6 +40,11 @@ class LoginTest() : TestBase() {
     }
 
     @Test
+    fun patTalks() {
+        printIssues("https://parellisavvyclub.com/#!/library/594/categories","audio")
+    }
+
+    @Test
     fun essentials() {
         printIssues("https://parellisavvyclub.com/#!/library/659/categories")
     }
@@ -49,18 +54,17 @@ class LoginTest() : TestBase() {
         printIssues("https://parellisavvyclub.com/#!/library/11/categories")
     }
 
-
     @Test
     fun savvyClubDVDs() {
         printIssues("https://parellisavvyclub.com/#!/library/12/categories")
     }
 
-    private fun printIssues(url: String){
+    private fun printIssues(url: String, tab: String = "video"){
         login()
 
         driver.get(URI(url).toString())
 
-        loopOverIssues()
+        loopOverIssues(tab)
     }
 
     private fun login() {
@@ -72,17 +76,41 @@ class LoginTest() : TestBase() {
         Assert.assertTrue(driver.currentUrl.contains("dashboard"))
     }
 
-    private fun loopOverIssues() {
+//    private fun loopOverIssues() {
+//        val dvdOverViewPage = DvdOverViewPage(driver)
+//        val hrefs = dvdOverViewPage.getDVDs()
+//
+//        for (href: String in hrefs) {
+//            driver.get(URI(href).toString())
+//            printContent()
+//        }
+//    }
+
+    private fun loopOverIssues(tab:String = "video") {
         val dvdOverViewPage = DvdOverViewPage(driver)
         val hrefs = dvdOverViewPage.getDVDs()
 
         for (href: String in hrefs) {
             driver.get(URI(href).toString())
-            printContent()
+            printContent(tab)
         }
     }
+
     private fun printContent() {
         val dvdPage = SavvyClubDVDPage(driver)
+
+        dvdPage.printTitle()
+        dvdPage.printContent()
+        dvdPage.printURL()
+        dvdPage.printEnd()
+    }
+
+    private fun printContent(tab: String) {
+        val dvdPage = SavvyClubDVDPage(driver)
+
+        when (tab) {
+            "audio" -> dvdPage.clickTab(2)
+        }
 
         dvdPage.printTitle()
         dvdPage.printContent()

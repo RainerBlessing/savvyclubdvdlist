@@ -39,6 +39,11 @@ class StartPage(private val driver: WebDriver) {
 
         signinLink?.click()
         emailInput?.sendKeys(email)
+        try {
+            Thread.sleep(500)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
         passwordInput?.sendKeys(password)
 
 //        wait2.until(ExpectedConditions.textMatches(By.xpath("//*[@id=\"loginPopup\"]/div/div/div[2]/form/div[1]/div[1]/input"),Pattern.compile(email)))
