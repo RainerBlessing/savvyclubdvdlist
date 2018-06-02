@@ -59,6 +59,16 @@ class LoginTest() : TestBase() {
         printIssues("https://parellisavvyclub.com/#!/library/12/categories")
     }
 
+    @Test
+    fun fourSavvysOnLine() {
+        printIssues("https://parellisavvyclub.com/#!/library/531/categories")
+    }
+
+    @Test
+    fun fourSavvysLiberty() {
+        printIssues("https://parellisavvyclub.com/#!/library/536/categories")
+    }
+
     private fun printIssues(url: String, tab: String = "video"){
         login()
 
