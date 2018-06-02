@@ -69,6 +69,97 @@ class LoginTest() : TestBase() {
         printIssues("https://parellisavvyclub.com/#!/library/536/categories")
     }
 
+    @Test
+    fun fourSavvysFreestyle() {
+        printIssues("https://parellisavvyclub.com/#!/library/547/categories")
+    }
+
+    @Test
+    fun fourSavvysFinesse() {
+        printIssues("https://parellisavvyclub.com/#!/library/554/categories")
+    }
+    @Test
+    fun Levels2009_1_2() {
+        printIssues("https://parellisavvyclub.com/#!/library/554/categories")
+    }
+
+    @Test
+    fun Levels2009_3() {
+        printIssues("https://parellisavvyclub.com/#!/library/508/categories")
+    }
+
+    @Test
+    fun Levels2009_4() {
+        printIssues("https://parellisavvyclub.com/#!/library/512/categories")
+    }
+
+    @Test
+    fun Levels2009_Partnership() {
+        printIssues("https://parellisavvyclub.com/#!/library/481/categories")
+    }
+
+    @Test
+    fun Levels2009_Harmony() {
+        printIssues("https://parellisavvyclub.com/#!/library/495/categories")
+    }
+
+    @Test
+    fun VHS_Partnership() {
+        printIssues("https://parellisavvyclub.com/#!/library/528/categories")
+    }
+
+    @Test
+    fun VHS_Harmony() {
+        printIssues("https://parellisavvyclub.com/#!/library/529/categories")
+    }
+
+    @Test
+    fun VHS_Refinement() {
+        printIssues("https://parellisavvyclub.com/#!/library/530/categories")
+    }
+
+    @Test
+    fun InsideAccess() {
+        printIssues("https://parellisavvyclub.com/#!/library/9/categories")
+    }
+
+    @Test
+    fun MasteryLessons() {
+        printIssues("https://parellisavvyclub.com/#!/library/14/categories")
+    }
+
+    @Test
+    fun SuccessSeries() {
+        printIssues("https://parellisavvyclub.com/#!/library/559/categories")
+    }
+
+    @Test
+    fun LibertyAndHorseBehaviour() {
+        printIssues("https://parellisavvyclub.com/#!/library/517/categories")
+    }
+
+    @Test
+    fun ProblemSolvingSeries() {
+        printIssues("https://parellisavvyclub.com/#!/library/617/categories")
+    }
+
+    @Test
+    fun ParelliTV() {
+        printIssues("https://parellisavvyclub.com/#!/library/13/categories")
+    }
+
+    @Test
+    fun Tutorials() {
+        //Document
+        //ToDo printIssues("https://parellisavvyclub.com/#!/library/703/categories")
+    }
+
+    @Test
+    fun MemberDocuments() {
+        printIssues("https://parellisavvyclub.com/#!/library/617/categories")
+    }
+
+
     private fun printIssues(url: String, tab: String = "video"){
         login()
 
