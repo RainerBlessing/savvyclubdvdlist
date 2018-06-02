@@ -40,7 +40,7 @@ class StartPage(private val driver: WebDriver) {
         signinLink?.click()
         emailInput?.sendKeys(email)
         try {
-            Thread.sleep(500)
+            Thread.sleep(1000)
         } catch (e: InterruptedException) {
             e.printStackTrace()
         }

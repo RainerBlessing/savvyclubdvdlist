@@ -10,8 +10,8 @@ import java.net.URI
 import java.util.regex.Pattern
 
 
-class LoginTest() : TestBase() {
-    @Test
+class LoginTest : TestBase() {
+//    @Test
     fun loginEmail() {
         login()
 
@@ -42,7 +42,7 @@ class LoginTest() : TestBase() {
 
     @Test
     fun patTalks() {
-        printIssues("https://parellisavvyclub.com/#!/library/594/categories", "audio", "")
+        printIssues("https://parellisavvyclub.com/#!/library/594/categories", "audio", "pattalks")
     }
 
     @Test
@@ -57,105 +57,106 @@ class LoginTest() : TestBase() {
 
     @Test
     fun savvyClubDVDs() {
-        printIssues("https://parellisavvyclub.com/#!/library/12/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/12/categories", fileName = "savvyclubdvds")
     }
 
     @Test
     fun fourSavvysOnLine() {
-        printIssues("https://parellisavvyclub.com/#!/library/531/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/531/categories", fileName = "foursavvysonline")
     }
 
     @Test
     fun fourSavvysLiberty() {
-        printIssues("https://parellisavvyclub.com/#!/library/536/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/536/categories", fileName = "foursavvysliberty")
     }
 
     @Test
     fun fourSavvysFreestyle() {
-        printIssues("https://parellisavvyclub.com/#!/library/547/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/547/categories", fileName = "foursavvysfreestyle")
     }
 
     @Test
     fun fourSavvysFinesse() {
-        printIssues("https://parellisavvyclub.com/#!/library/554/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/554/categories", fileName = "foursavvysfinesse")
     }
     @Test
     fun Levels2009_1_2() {
-        printIssues("https://parellisavvyclub.com/#!/library/554/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/554/categories", fileName = "levels2009_1_2")
     }
 
     @Test
     fun levels2009_3() {
-        printIssues("https://parellisavvyclub.com/#!/library/508/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/508/categories", fileName = "levels2009_3")
     }
 
     @Test
     fun levels2009_4() {
-        printIssues("https://parellisavvyclub.com/#!/library/512/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/512/categories", fileName = "levels2009_4")
     }
 
     @Test
     fun levels2009_Partnership() {
-        printIssues("https://parellisavvyclub.com/#!/library/481/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/481/categories", fileName = "partnership")
     }
 
     @Test
     fun levels2009_Harmony() {
-        printIssues("https://parellisavvyclub.com/#!/library/495/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/495/categories", fileName = "harmony")
     }
 
     @Test
     fun vhs_Partnership() {
-        printIssues("https://parellisavvyclub.com/#!/library/528/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/528/categories", fileName = "vhs_partnership")
     }
 
     @Test
     fun vhs_Harmony() {
-        printIssues("https://parellisavvyclub.com/#!/library/529/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/529/categories", fileName = "vhs_harmony")
     }
 
     @Test
     fun vhs_Refinement() {
-        printIssues("https://parellisavvyclub.com/#!/library/530/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/530/categories", fileName = "vhs_refinement")
     }
 
     @Test
     fun insideAccess() {
-        printIssues("https://parellisavvyclub.com/#!/library/9/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/9/categories", fileName = "insideaccess")
     }
 
     @Test
     fun masteryLessons() {
-        printIssues("https://parellisavvyclub.com/#!/library/14/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/14/categories", fileName = "masterylessons")
     }
 
     @Test
     fun successSeries() {
-        printIssues("https://parellisavvyclub.com/#!/library/559/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/559/categories", fileName = "successseries")
     }
 
     @Test
     fun libertyAndHorseBehaviour() {
-        printIssues("https://parellisavvyclub.com/#!/library/517/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/517/categories", fileName = "libertyandhorsebehaviour")
     }
+
 
     @Test
     fun problemSolvingSeries() {
-        printIssues("https://parellisavvyclub.com/#!/library/617/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/617/categories", fileName = "problemsolvingseries")
     }
 
     @Test
     fun parelliTV() {
-        printIssues("https://parellisavvyclub.com/#!/library/13/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/13/categories", fileName = "parellity")
     }
 
-    @Test
+//    @Test
     fun tutorials() {
         //Document
         //ToDo printIssues("https://parellisavvyclub.com/#!/library/703/categories")
     }
 
-    @Test
+//    @Test
     fun memberDocuments() {
         printIssues("https://parellisavvyclub.com/#!/library/617/categories", fileName = "")
     }
