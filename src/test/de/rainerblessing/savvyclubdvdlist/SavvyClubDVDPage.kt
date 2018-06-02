@@ -4,13 +4,12 @@ import org.openqa.selenium.By
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
-import org.openqa.selenium.interactions.Actions
 import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.PageFactory
-import java.sql.DriverManager.getDriver
+import java.io.File
 
 
-class SavvyClubDVDPage(private val driver: WebDriver) {
+class SavvyClubDVDPage(private val driver: WebDriver, fileName: String = "") {
     @FindBy(css = ".prl__player__playlist__title")
     private val listItems: List<WebElement>? = null
 
@@ -22,9 +21,9 @@ class SavvyClubDVDPage(private val driver: WebDriver) {
     }
 
     fun printTitle() {
-        println(title?.text)
+        printlnLocal(title?.text!!)
         title?.text!!.length.downTo(0).forEach { print("-") }
-        println("")
+        printlnLocal("")
     }
 
     fun printContent() {
@@ -38,19 +37,20 @@ class SavvyClubDVDPage(private val driver: WebDriver) {
                 }
 
                 if (listItem.text != "") {
-                    println(listItem.text)
+                    printlnLocal(listItem.text)
                 }
             }
         }
+
     }
 
     fun printEnd() {
         40.downTo(0).forEach { print("=") }
-        println("")
+        printlnLocal("")
     }
 
     fun printURL() {
-        println(driver.currentUrl)
+        printlnLocal(driver.currentUrl)
     }
 
     fun clickTab(i: Int) {
@@ -69,4 +69,15 @@ class SavvyClubDVDPage(private val driver: WebDriver) {
 
     }
 
+    var fileContent: String =""
+
+    fun printlnLocal(line: String) {
+        this.fileContent += line + "\n"
+        System.out.println(line)
+    }
+
+    fun print(text: String) {
+        this.fileContent += text
+        System.out.print(text)
+    }
 }

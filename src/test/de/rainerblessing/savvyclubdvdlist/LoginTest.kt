@@ -5,6 +5,7 @@ import org.testng.annotations.Test
 import org.openqa.selenium.By
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
+import java.io.File
 import java.net.URI
 import java.util.regex.Pattern
 
@@ -41,17 +42,17 @@ class LoginTest() : TestBase() {
 
     @Test
     fun patTalks() {
-        printIssues("https://parellisavvyclub.com/#!/library/594/categories","audio")
+        printIssues("https://parellisavvyclub.com/#!/library/594/categories", "audio", "")
     }
 
     @Test
     fun essentials() {
-        printIssues("https://parellisavvyclub.com/#!/library/659/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/659/categories",fileName = "savvyessentials")
     }
 
     @Test
     fun touchstones(){
-        printIssues("https://parellisavvyclub.com/#!/library/11/categories")
+        printIssues("https://parellisavvyclub.com/#!/library/11/categories", fileName = "touchstones")
     }
 
     @Test
@@ -84,88 +85,88 @@ class LoginTest() : TestBase() {
     }
 
     @Test
-    fun Levels2009_3() {
+    fun levels2009_3() {
         printIssues("https://parellisavvyclub.com/#!/library/508/categories")
     }
 
     @Test
-    fun Levels2009_4() {
+    fun levels2009_4() {
         printIssues("https://parellisavvyclub.com/#!/library/512/categories")
     }
 
     @Test
-    fun Levels2009_Partnership() {
+    fun levels2009_Partnership() {
         printIssues("https://parellisavvyclub.com/#!/library/481/categories")
     }
 
     @Test
-    fun Levels2009_Harmony() {
+    fun levels2009_Harmony() {
         printIssues("https://parellisavvyclub.com/#!/library/495/categories")
     }
 
     @Test
-    fun VHS_Partnership() {
+    fun vhs_Partnership() {
         printIssues("https://parellisavvyclub.com/#!/library/528/categories")
     }
 
     @Test
-    fun VHS_Harmony() {
+    fun vhs_Harmony() {
         printIssues("https://parellisavvyclub.com/#!/library/529/categories")
     }
 
     @Test
-    fun VHS_Refinement() {
+    fun vhs_Refinement() {
         printIssues("https://parellisavvyclub.com/#!/library/530/categories")
     }
 
     @Test
-    fun InsideAccess() {
+    fun insideAccess() {
         printIssues("https://parellisavvyclub.com/#!/library/9/categories")
     }
 
     @Test
-    fun MasteryLessons() {
+    fun masteryLessons() {
         printIssues("https://parellisavvyclub.com/#!/library/14/categories")
     }
 
     @Test
-    fun SuccessSeries() {
+    fun successSeries() {
         printIssues("https://parellisavvyclub.com/#!/library/559/categories")
     }
 
     @Test
-    fun LibertyAndHorseBehaviour() {
+    fun libertyAndHorseBehaviour() {
         printIssues("https://parellisavvyclub.com/#!/library/517/categories")
     }
 
     @Test
-    fun ProblemSolvingSeries() {
+    fun problemSolvingSeries() {
         printIssues("https://parellisavvyclub.com/#!/library/617/categories")
     }
 
     @Test
-    fun ParelliTV() {
+    fun parelliTV() {
         printIssues("https://parellisavvyclub.com/#!/library/13/categories")
     }
 
     @Test
-    fun Tutorials() {
+    fun tutorials() {
         //Document
         //ToDo printIssues("https://parellisavvyclub.com/#!/library/703/categories")
     }
 
     @Test
-    fun MemberDocuments() {
-        printIssues("https://parellisavvyclub.com/#!/library/617/categories")
+    fun memberDocuments() {
+        printIssues("https://parellisavvyclub.com/#!/library/617/categories", fileName = "")
     }
 
 
-    private fun printIssues(url: String, tab: String = "video"){
+    private fun printIssues(url: String, tab: String = "video", fileName: String = ""){
         login()
 
         driver.get(URI(url).toString())
 
-        loopOverIssues(tab)
+        loopOverIssues(tab,fileName)
     }
 
     private fun login() {
@@ -187,26 +188,37 @@ class LoginTest() : TestBase() {
 //        }
 //    }
 
-    private fun loopOverIssues(tab:String = "video") {
+    private fun loopOverIssues(tab: String = "video", fileName: String) {
         val dvdOverViewPage = DvdOverViewPage(driver)
         val hrefs = dvdOverViewPage.getDVDs()
 
+        var printContent:String =""
+
         for (href: String in hrefs) {
             driver.get(URI(href).toString())
-            printContent(tab)
+            printContent += printContent(tab)
+        }
+
+        if(fileName.isNotEmpty()){
+            var myfile: File = File("docs/$fileName.txt")
+            myfile.bufferedWriter().use {
+                it.write(printContent)
+            }
         }
     }
 
-    private fun printContent() {
+    private fun printContent(): String {
         val dvdPage = SavvyClubDVDPage(driver)
 
         dvdPage.printTitle()
         dvdPage.printContent()
         dvdPage.printURL()
         dvdPage.printEnd()
+
+        return dvdPage.fileContent
     }
 
-    private fun printContent(tab: String) {
+    private fun printContent(tab: String): String {
         val dvdPage = SavvyClubDVDPage(driver)
 
         when (tab) {
@@ -217,5 +229,7 @@ class LoginTest() : TestBase() {
         dvdPage.printContent()
         dvdPage.printURL()
         dvdPage.printEnd()
+
+        return dvdPage.fileContent
     }
 }
