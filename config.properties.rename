@@ -1,3 +1,5 @@
+email=
+password=
 pathDriver =
 nameDriver = webdriver.chrome.driver
 exeDriver = chromedriver.exe

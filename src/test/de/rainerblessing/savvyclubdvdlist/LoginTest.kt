@@ -172,7 +172,7 @@ class LoginTest : TestBase() {
 
     private fun login() {
         val startPage = StartPage(driver)
-        startPage.login("rainer.blessing@gmail.com", "*9@C9R@HH99d")
+        startPage.login(UtilResources.getProperties("email"), UtilResources.getProperties("password"))
         val wait = WebDriverWait(driver, 40)
         wait.until(ExpectedConditions.textMatches(By.xpath("//*[@id=\"main\"]/dashboard-header/div/div/div[1]/h1"), Pattern.compile("My Dashboard")))
 
