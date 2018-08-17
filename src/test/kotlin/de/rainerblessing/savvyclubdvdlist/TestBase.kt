@@ -33,9 +33,9 @@ abstract class TestBase {
         options.addArguments("disable-dev-shm-usage")
         driver = ChromeDriver(options)
         driver.manage().deleteAllCookies();
-        driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
-//        driver.manage()?.window()?.maximize()
-        driver.manage().window().size = Dimension(2000, 1200)
+        driver.manage()?.timeouts()?.implicitlyWait(20, TimeUnit.SECONDS)
+        driver.manage()?.window()?.maximize()
+//        driver.manage().window().size = Dimension(2000, 1200)
         driver.get(URI("https://parellisavvyclub.com/#!/").toString())
     }
 
