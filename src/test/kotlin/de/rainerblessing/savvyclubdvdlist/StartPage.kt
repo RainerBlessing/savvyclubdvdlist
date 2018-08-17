@@ -1,16 +1,9 @@
 package de.rainerblessing.savvyclubdvdlist
 
 import org.apache.commons.io.FileUtils
-import org.openqa.selenium.By
-import org.openqa.selenium.TimeoutException
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.WebElement
+import org.openqa.selenium.*
 import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.PageFactory
-import org.openqa.selenium.support.ui.ExpectedConditions
-import org.openqa.selenium.support.ui.WebDriverWait
-import org.openqa.selenium.OutputType
-import org.openqa.selenium.TakesScreenshot
 import java.io.File
 
 
@@ -34,19 +27,29 @@ class StartPage(private val driver: WebDriver) {
     @FindBy(name = "search")
     private val searchButton: WebElement? = null
 
+    @FindBy(xpath = "*[@id=\"header\"]/div/div/nav/div[1]/button")
+//    @FindBy(className = "navbar-toggle")
+    private val navbarToggle: WebElement? = null
+
     init {
         PageFactory.initElements(driver, this)
     }
 
-    fun login(email: String, password: String) {
+    fun login(email: String, password: String): Boolean {
         try {
-        val wait2 = WebDriverWait(driver, 10)
-        wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header-menu\"]/ul[1]/li[4]/a")))
 
-        val milliseconds: Long = 2000
-        sleep(milliseconds)
+            val milliseconds: Long = 2000
+            sleep(milliseconds)
+            if (signinLink?.isDisplayed!!) {
+                signinLink?.click()
+            } else {
 
-            signinLink?.click()
+                val js = driver as JavascriptExecutor
+                js.executeScript("\$('.navbar-toggle').click()")
+                sleep(1000)
+                signinLink?.click()
+            }
+            sleep(5000)
             emailInput?.sendKeys(email)
             sleep(milliseconds)
             passwordInput?.sendKeys(password)
@@ -62,6 +65,7 @@ class StartPage(private val driver: WebDriver) {
             FileUtils.copyFile(scrFile, File("failure.jpg"));
         }
 
+        return true
     }
 
     private fun sleep(sleep: Long) {
