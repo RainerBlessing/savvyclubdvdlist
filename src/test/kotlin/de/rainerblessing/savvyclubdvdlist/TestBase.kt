@@ -28,6 +28,9 @@ abstract class TestBase {
                 UtilResources.getProperties("pathDriver") + UtilResources.getProperties("exeDriver"))
         val options = ChromeOptions()
         options.addArguments("headless")
+        options.addArguments("disable-gpu")
+        options.addArguments("no-sandbox")
+        options.addArguments("disable-dev-shm-usage")
         driver = ChromeDriver(options)
         driver.manage().deleteAllCookies();
         driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
