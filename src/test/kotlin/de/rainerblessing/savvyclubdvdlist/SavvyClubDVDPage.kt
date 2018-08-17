@@ -6,10 +6,9 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.PageFactory
-import java.io.File
 
 
-class SavvyClubDVDPage(private val driver: WebDriver, fileName: String = "") {
+class SavvyClubDVDPage(private val driver: WebDriver) {
     @FindBy(css = ".prl__player__playlist__title")
     private val listItems: List<WebElement>? = null
 
@@ -22,7 +21,7 @@ class SavvyClubDVDPage(private val driver: WebDriver, fileName: String = "") {
 
     fun printTitle() {
         printlnLocal(title?.text!!)
-        title?.text!!.length.downTo(0).forEach { print("-") }
+        title.text!!.length.downTo(0).forEach { print("-") }
         printlnLocal("")
     }
 

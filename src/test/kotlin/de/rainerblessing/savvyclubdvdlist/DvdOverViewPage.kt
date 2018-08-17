@@ -17,7 +17,7 @@ class DvdOverViewPage(private val driver: WebDriver){
     fun getDVDs(): List<String> {
         var hrefs:MutableList<String> = mutableListOf()
         if (dvdLinks != null) {
-            dvdLinks.mapTo(hrefs) { it!!.getAttribute("href") }
+            dvdLinks.mapTo(hrefs) { it.getAttribute("href") }
         }
         return hrefs
     }
