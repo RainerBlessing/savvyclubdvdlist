@@ -17,8 +17,13 @@ object UtilResources {
         }
     }
 
-    fun getProperties(properties: String): String {
+    fun getProperties(property: String): String {
         loadProperties()
-        return UtilResources.properties?.getProperty(properties).toString()
+        try {
+            return checkNotNull(System.getProperty(property))
+
+        } catch (e: IllegalStateException) {
+            return UtilResources.properties?.getProperty(property).toString()
+        }
     }
 }
