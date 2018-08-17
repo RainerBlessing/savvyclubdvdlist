@@ -39,12 +39,13 @@ class StartPage(private val driver: WebDriver) {
     }
 
     fun login(email: String, password: String) {
-        val wait2 = WebDriverWait(driver, 20)
+        try {
+        val wait2 = WebDriverWait(driver, 10)
         wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header-menu\"]/ul[1]/li[4]/a")))
 
-        val milliseconds: Long = 5000
+        val milliseconds: Long = 2000
         sleep(milliseconds)
-        try {
+
             signinLink?.click()
             emailInput?.sendKeys(email)
             sleep(milliseconds)
@@ -56,7 +57,7 @@ class StartPage(private val driver: WebDriver) {
             sleep(milliseconds)
 
             loginLink?.click()
-        } catch (e: TimeoutException) {
+        } catch (e: Exception) {
             val scrFile = (driver as TakesScreenshot).getScreenshotAs(OutputType.FILE)
             FileUtils.copyFile(scrFile, File("failure.jpg"));
         }
