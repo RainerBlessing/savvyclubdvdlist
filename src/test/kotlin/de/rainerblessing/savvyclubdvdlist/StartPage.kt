@@ -36,18 +36,18 @@ class StartPage(private val driver: WebDriver) {
         val wait2 = WebDriverWait(driver, 10)
         wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header-menu\"]/ul[1]/li[4]/a")))
 
-        val milliseconds: Long = 1000
+        val milliseconds: Long = 2000
         sleep(milliseconds)
 
         signinLink?.click()
         emailInput?.sendKeys(email)
-        sleep(1000)
+        sleep(milliseconds)
         passwordInput?.sendKeys(password)
 
 //        wait2.until(ExpectedConditions.textMatches(By.xpath("//*[@id=\"loginPopup\"]/div/div/div[2]/form/div[1]/div[1]/input"),Pattern.compile(email)))
 //        wait2.until(ExpectedConditions.textMatches(By.xpath("//*[@id=\"loginPopup\"]/div/div/div[2]/form/div[1]/div[2]/input"),Pattern.compile(password)))
 
-        sleep(2000)
+        sleep(milliseconds)
 
         loginLink?.click()
     }
