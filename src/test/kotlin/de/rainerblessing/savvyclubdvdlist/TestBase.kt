@@ -36,7 +36,7 @@ abstract class TestBase {
         driver.manage()?.timeouts()?.implicitlyWait(10, TimeUnit.SECONDS)
 //        driver.manage()?.window()?.maximize()
         driver.manage().window().size = Dimension(2000, 1200)
-        driver.get(URI(UtilResources.getProperties("pageURL")).toString())
+        driver.get(URI("https://parellisavvyclub.com/#!/").toString())
     }
 
     @AfterClass
