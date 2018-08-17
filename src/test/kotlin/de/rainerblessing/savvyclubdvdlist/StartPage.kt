@@ -62,7 +62,7 @@ class StartPage(private val driver: WebDriver) {
             loginLink?.click()
         } catch (e: Exception) {
             val scrFile = (driver as TakesScreenshot).getScreenshotAs(OutputType.FILE)
-            FileUtils.copyFile(scrFile, File("failure.jpg"));
+            FileUtils.copyFile(scrFile, File("failure.jpg"))
         }
 
         return true

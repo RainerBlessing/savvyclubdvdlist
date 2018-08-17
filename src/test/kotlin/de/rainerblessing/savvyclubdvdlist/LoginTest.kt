@@ -1,8 +1,11 @@
 package de.rainerblessing.savvyclubdvdlist
 
+import org.apache.commons.io.FileUtils
 import org.testng.Assert
 import org.testng.annotations.Test
 import org.openqa.selenium.By
+import org.openqa.selenium.OutputType
+import org.openqa.selenium.TakesScreenshot
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.WebDriverWait
 import java.io.File
@@ -174,6 +177,9 @@ class LoginTest : TestBase() {
         val startPage = StartPage(driver)
         if (startPage.login(UtilResources.getProperties("email"), UtilResources.getProperties("password"))) {
             val wait = WebDriverWait(driver, 40)
+            val scrFile = (driver as TakesScreenshot).getScreenshotAs(OutputType.FILE)
+            FileUtils.copyFile(scrFile, File("failure.jpg"))
+
             wait.until(ExpectedConditions.textMatches(By.xpath("//*[@id=\"main\"]/dashboard-header/div/div/div[1]/h1"), Pattern.compile("My Dashboard")))
 
             Assert.assertTrue(driver.currentUrl.contains("dashboard"))
