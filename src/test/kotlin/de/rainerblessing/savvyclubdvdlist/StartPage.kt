@@ -33,7 +33,7 @@ class StartPage(private val driver: WebDriver) {
     }
 
     fun login(email: String, password: String) {
-        val wait2 = WebDriverWait(driver, 10)
+        val wait2 = WebDriverWait(driver, 20)
         wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header-menu\"]/ul[1]/li[4]/a")))
 
         val milliseconds: Long = 5000
