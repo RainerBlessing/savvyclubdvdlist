@@ -41,13 +41,13 @@ class StartPage(private val driver: WebDriver) {
             val milliseconds: Long = 2000
             sleep(milliseconds)
             if (signinLink?.isDisplayed!!) {
-                signinLink?.click()
+                signinLink.click()
             } else {
 
                 val js = driver as JavascriptExecutor
                 js.executeScript("\$('.navbar-toggle').click()")
                 sleep(1000)
-                signinLink?.click()
+                signinLink.click()
             }
             sleep(5000)
             emailInput?.sendKeys(email)

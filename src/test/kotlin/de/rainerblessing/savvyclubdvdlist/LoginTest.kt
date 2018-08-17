@@ -177,8 +177,6 @@ class LoginTest : TestBase() {
         val startPage = StartPage(driver)
         if (startPage.login(UtilResources.getProperties("email"), UtilResources.getProperties("password"))) {
             val wait = WebDriverWait(driver, 40)
-            val scrFile = (driver as TakesScreenshot).getScreenshotAs(OutputType.FILE)
-            FileUtils.copyFile(scrFile, File("failure.jpg"))
 
             wait.until(ExpectedConditions.textMatches(By.xpath("//*[@id=\"main\"]/dashboard-header/div/div/div[1]/h1"), Pattern.compile("My Dashboard")))
 
