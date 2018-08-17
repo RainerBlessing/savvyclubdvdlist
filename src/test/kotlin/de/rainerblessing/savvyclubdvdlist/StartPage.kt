@@ -36,7 +36,7 @@ class StartPage(private val driver: WebDriver) {
         val wait2 = WebDriverWait(driver, 10)
         wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"header-menu\"]/ul[1]/li[4]/a")))
 
-        val milliseconds: Long = 2000
+        val milliseconds: Long = 5000
         sleep(milliseconds)
 
         signinLink?.click()
