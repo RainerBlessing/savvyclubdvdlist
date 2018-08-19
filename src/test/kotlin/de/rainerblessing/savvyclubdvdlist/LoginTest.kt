@@ -43,15 +43,15 @@ class LoginTest : TestBase() {
         printContent()
     }
 
-    @Test
-    fun patTalks() {
-        printIssues("https://parellisavvyclub.com/#!/library/594/categories", "audio", "pattalks")
-    }
-
 //    @Test
-//    fun essentials() {
-//        printIssues("https://parellisavvyclub.com/#!/library/659/categories",fileName = "savvyessentials")
+//    fun patTalks() {
+//        printIssues("https://parellisavvyclub.com/#!/library/594/categories", "audio", "pattalks")
 //    }
+
+    @Test
+    fun essentials() {
+        printIssues("https://parellisavvyclub.com/#!/library/659/categories",fileName = "savvyessentials")
+    }
 //
 //    @Test
 //    fun touchstones(){
